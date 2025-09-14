@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>La Santo's Pizza | Complete Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #333;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffcc00, #ff9900);
+      color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .hero-nav a {
+      text-decoration: none;
+      background: #fff;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-nav a:hover {
+    background: #ff0000;
+    color: #ffffff;
+      transform: translateY(-5px);
+    }
+
+    .menu-container {
+      max-width: 1300px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .menu-container h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #ff6600;
+    }
+
+    section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ff6600;
+      padding-bottom: 5px;
+    }
+
+    section h4 {
+      font-size: 1.4rem;
+      margin: 20px 0 15px;
+      color: #555;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .menu-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .menu-card h4 {
+      font-size: 1.2rem;
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    .menu-card p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-weight: bold;
+      background: #ffcc00;
+      padding: 8px 18px;
+      border-radius: 20px;
+      display: inline-block;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      background: #333;
+      color: #fff;
+      padding: 30px 20px;
+      font-size: 1rem;
+    }
+
+    img#logolas {
+    width: 300px;
+    position: absolute;
+    left: 50px;
+    top: 45px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+    font-family: serif;
+}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">La Santo's Pizza</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="navbar">
+      <a href="#veg">Veg Pizza</a>
+      <a href="#nonveg">Non-Veg Pizza</a>
+      <a href="#vegpocketfriendly">Veg Pocket Friendly Pizza</a>
+      <a href="#nonvegpocketfriendly">Non-Veg Pocket Friendly Pizza</a>
+      <a href="#combo">Combo Pocket Friendly Pizza</a>
+      <a href="#sandwiches">Sandwiches</a>
+      <a href="#starters">Starters</a>
+      <a href="#momos">Momos</a>
+      <a href="#mocktails">Mocktails</a>
+      <a href="#coolberg">Coolberg</a>
+      <a href="#coffee">Coffee</a>
+      <a href="#desserts">Desserts</a>
+      <a href="#supersideorders">Super Side Orders</a>
+      <a href="#vegpizzasandwich">Veg Pizza Sandwich</a>
+      <a href="#nonvegpizzasandwich">Non-Veg Pizza Sandwich</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <img id="logolas" src="la santos logo.png" alt="logo">
+    <h1>Delicious Pizzas & More Delivered to Your Doorstep</h1>
+    <p>Veg & Non-Veg Pizzas, Sandwiches, Starters, Mocktails, Desserts & More</p>
+    <div class="hero-nav">
+      <a href="#veg">Veg Pizza</a>
+      <a href="#nonveg">Non-Veg Pizza</a>
+      <a href="#vegpocketfriendly">Veg Pocket Friendly Pizza</a>
+      <a href="#nonvegpocketfriendly">Non-Veg Pocket Friendly Pizza</a>
+      <a href="#combo">Combo Pocket Friendly Pizza</a>
+      <a href="#sandwiches">Sandwiches</a>
+      <a href="#starters">Starters</a>
+      <a href="#momos">Momos</a>
+      <a href="#mocktails">Mocktails</a>
+      <a href="#coolberg">Coolberg</a>
+      <a href="#coffee">Coffee</a>
+      <a href="#desserts">Desserts</a>
+      <a href="#supersideorders">Super Side Orders</a>
+      <a href="#vegpizzasandwich">Veg Pizza Sandwich</a>
+      <a href="#nonvegpizzasandwich">Non-Veg Pizza Sandwich</a>
+    </div>
+  </div>
+
+  <div class="menu-container">
+    <h2>Our Complete Menu</h2>
+
+    <!-- Veg Pizza Section -->
+    <section id="veg">
+      <h3>Veg Pizza</h3>
+
+      <h4>V1</h4>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Plain Cheese Pizza.jpg" alt="Plain Cheese"/><h4>Plain Cheese</h4><p>Tomato sauce with cheese</p><div class="price">₹110 /215 /325</div></div>
+        <div class="menu-card"><img src="Margerita Pizza.jpg" alt="Margherita"/><h4>Margherita</h4><p>Basil and tomato slice</p><div class="price">₹110 /215 /325</div></div>
+       
+      </div>
+
+      <h4>V2</h4>
+      <div class="menu-grid">
+         <div class="menu-card"><img src="Simply Veg Pizza.jpg"><h4>Simply Veg</h4><p>Onion, capsicum, corn</p><div class="price">₹175 /345 /420</div></div>
+        <div class="menu-card"><img src="Crisp _n_ Lite Pizza.jpg" alt="Crisp ‘N’ Lite"/><h4>Crisp ‘N’ Lite</h4><p>Onion, capsicum, tomato, green chillies, cheese</p><div class="price">₹175 /345 /420</div></div>
+        <div class="menu-card"><img src="Classic Veg Pizza.jpg" alt="Mixed Veg"/><h4>Mixed Veg</h4><p>Onion, capsicum, mushroom</p><div class="price">₹175 /345 /420</div></div>
+        <div class="menu-card"><img src="Santos Special Pizza.jpg" alt="Spicy Veg"/><h4>Spicy Veg</h4><p>Onion & red paprika in spicy sauce</p><div class="price">₹175 /345 /420</div></div>
+     </div>
+
+      <h4>V3</h4>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Corn Feast Pizza.jpg"><h4>Corn Feast</h4><p>Capsicum, corn, baby corn, pineapple</p><div class="price">₹265 /500 /680</div></div>
+        <div class="menu-card"><img src="Santo_ss Five Pizza.jpg" alt="Santo’s Five"/><h4>Santo’s Five</h4><p>Choice of any 5 vegetable toppings</p><div class="price">₹265 /500 /680</div></div>
+        <div class="menu-card"><img src="Veg Schezwan Pizza.jpg" alt="Veg Schezwan"/><h4>Veg Schezwan</h4><p>Baby corn, capsicum, onion, spring onion</p><div class="price">₹265 /500 /680</div></div>
+        <div class="menu-card"><img src="Veg Special Pizza.jpg" alt="Veg Special"/><h4>Veg Special</h4><p>Onion, corn, paprika, olives, bell peppers</p><div class="price">₹265 /500 /680</div></div>
+        <div class="menu-card"><img src="Tandoori Paneer Pizza.jpg" alt="Tandoori Paneer"/><h4>Tandoori Paneer</h4><p>Tandoori paneer, corn, coriander, chillies</p><div class="price">₹265 /500 /680</div></div>
+        <div class="menu-card"><img src="Paneer Chilly Pizza.jpg" alt="Paneer Chilly"/><h4>Paneer Chilly</h4><p>Paneer, capsicum, onion, chillies, sesame seeds</p><div class="price">₹265 /500 /680</div></div>
+        <div class="menu-card"><img src="Classic Veg Pizza.jpg" alt="Classic Veg"/><h4>Classic Veg</h4><p>Capsicum, corn, mushroom, olives</p><div class="price">₹265 /500 /680</div></div>
+        <div class="menu-card"><img src="Double Cheese Margerita Pizza.jpg" alt="Double Cheese Margherita"/><h4>Double Cheese Margherita</h4><p>Extra cheese, mushroom, oregano, basil, onion</p><div class="price">₹265 /500 /680</div></div>
+        <div class="menu-card"><img src="Super Veg Pizza.jpg" alt="Super Veg"/><h4>Super Veg</h4><p>Baby corn, olives, capsicum, onion, tomato, mushroom, paneer</p><div class="price">₹265 /500 /680</div></div>
+      </div>
+    </section>
+
+    <!-- Non-Veg Pizza Section -->
+    <section id="nonveg">
+      <h3>Non-Veg Pizza</h3>
+
+      <h4>NV1</h4>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Hot Chicken Pizza.jpg" alt="Hot Chicken"/><h4>Hot Chicken</h4><p>Cheese & hot chicken</p><div class="price">₹175 /345 /450</div></div>
+        <div class="menu-card"><img src="Grilled Chicken Pizza.jpg" alt="Grilled Chicken"/><h4>Grilled Chicken</h4><p>Cheese & roast chicken</p><div class="price">₹175 /345 /450</div></div>
+        </div>
+
+      <h4>NV2</h4>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Chicken Tikka Pizza.jpg" alt="Chicken Tikka"/><h4>Chicken Tikka</h4><p>Chicken tikka, onion, coriander</p><div class="price">₹265 /525 /630</div></div>
+        <div class="menu-card"><img src="Chicken Lover_s Pizza.jpg" alt="Butter Chicken"/><h4>Butter Chicken</h4><p>Chicken in makhani sauce</p><div class="price">₹265 /525 /630</div></div>
+        <div class="menu-card"><img src="Schezwan Chicken Pizza.jpg" alt="Schezwan Chicken"/><h4>Schezwan Chicken</h4><p>Hot schezwan chicken, spring onion</p><div class="price">₹265 /525 /630</div></div>
+        <div class="menu-card"><img src="Chicken Bhuna Pizza.jpg" alt="Chicken Bhuna"/><h4>Chicken Bhuna</h4><p>Chicken bhuna with coriander</p><div class="price">₹265 /525 /630</div></div>
+     </div>
+
+      <h4>NV3</h4>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Barbeque Chicken Pizza.jpg" alt="Barbeque Chicken"/><h4>Barbeque Chicken</h4><p>Barbequed chicken, mushroom, onion</p><div class="price">₹300 /565 /750</div></div>
+        <div class="menu-card"><img src="Maxicana Pizza.jpg" alt="Maxicana"/><h4>Maxicana</h4><p>Hot chicken, salami, mushroom, capsicum</p><div class="price">₹300 /565 /750</div></div>
+        <div class="menu-card"><img src="Chicken Bonanza Pizza.jpg" alt="Chicken Bonanza"/><h4>Chicken Bonanza</h4><p>Sausage, bbq chicken, onion, jalapeno</p><div class="price">₹300 /565 /750</div></div>
+        <div class="menu-card"><img src="Supreme Chicken Pizza.jpg" alt="Supreme Chicken"/><h4>Supreme Chicken</h4><p>Salami, tikka, bhuna & olives</p><div class="price">₹300 /565 /750</div></div>
+        <div class="menu-card"><img src="Chicken Kabab Pizza.jpg" alt="Chicken Kabab"/><h4>Chicken Kabab</h4><p>Kabab cubes with onion, coriander</p><div class="price">₹300 /565 /750</div></div>
+        <div class="menu-card"><img src="Chicken Hawain Pizza.jpg" alt="Chicken Sausage"/><h4>Chicken Sausage</h4><p>Chicken sausage, onion, capsicum</p><div class="price">₹300 /565 /750</div></div>
+        <div class="menu-card"><img src="Supreme Chicken Pizza.jpg" alt="Non-Veg Supreme"/><h4>Non-Veg Supreme</h4><p>Chicken, salami, sausage, onion</p><div class="price">₹300 /565 /750</div></div>
+        <div class="menu-card"><img src="Hot Chicken Pizza.jpg" alt="Hot Non-Veg"/><h4>Hot Non-Veg</h4><p>Spicy chicken, onion, green chillies</p><div class="price">₹300 /565 /750</div></div>
+      </div>
+    </section>
+
+    <!-- Pocket Friendly Section -->
+    <section id="vegpocketfriendly">
+      <h3>Veg Pocket Friendly Pizza</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Simply Veg Pizza.jpg" alt="Veg salad"/><h4>Plain Cheese</h4><p>Creamy Cheese</p><div class="price">₹79</div></div>
+        <div class="menu-card"><img src="Simply Veg Pizza.jpg" alt="Nonveg salad"/><h4>Ultimate Veg</h4><p>Creamy Cheese + Onion + Capsicum</p><div class="price">₹99</div></div>
+        <div class="menu-card"><img src="Simply Veg Pizza.jpg" alt="Nonveg salad"/><h4>Golden Harvest</h4><p>Creamy Cheese + American Corn + Tomato</p><div class="price">₹99</div></div>
+        <div class="menu-card"><img src="Simply Veg Pizza.jpg" alt="Nonveg salad"/><h4>Creamy Delight</h4><p>Creamy Cheese + Mushroom + Capsicum</p><div class="price">₹99</div></div>
+    </div>
+    </section>
+
+     <!-- Pocket Friendly Section 2 -->
+    <section id="nonvegpocketfriendly">
+      <h3>Non-Veg Pocket Friendly Pizza</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Hot Chicken Pizza.jpg" alt="Veg salad"/><h4>Hot Chicken</h4><p>Creamy Cheese + Hot Chicken</p><div class="price">₹149</div></div>
+        <div class="menu-card"><img src="Barbeque Chicken Pizza.jpg" alt="Nonveg salad"/><h4>BBQ Chicken</h4><p>Creamy Cheese + BBQ Chicken</p><div class="price">₹149</div></div>
+        <div class="menu-card"><img src="Chicken Tikka Pizza.jpg" alt="Nonveg salad"/><h4>Chicken Tikka</h4><p>Creamy Cheese + Chicken Tikka</p><div class="price">₹149</div></div>
+        <div class="menu-card"><img src="Chicken Bhuna Pizza.jpg" alt="Nonveg salad"/><h4>Chicken Bhuna</h4><p>Creamy Cheese + Chicken Bhuna</p><div class="price">₹149</div></div>
+    </div>
+    </section>
+
+    <!-- Pocket Firendly Pizza Offer Section -->
+    <section id="combo">
+      <h3>Pocket Friendly Combo</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Super Veg Pizza.jpg" alt="Veg salad"/><h4>Veg Combo</h4><p>Four Pocket Friendly Veg Pizza's </p><div class="price">₹350</div></div>
+        <div class="menu-card"><img src="Chicken Bonanza Pizza.jpg" alt="Nonveg salad"/><h4>Non-Veg Combo</h4><p>Four Pocket Friendly Non-Veg Pizza's</p><div class="price">₹500</div></div>
+      </div>
+    </section>
+
+    <!-- Sandwiches Section -->
+    <section id="salad">
+      <h3>Salad's</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="vegsalad.jpg" alt="Veg salad"/><h4>Veg Salad</h4><p>Capsicum with salad vegetables and paneer in mayonnaise</p><div class="price">₹100</div></div>
+        <div class="menu-card"><img src="nonvegsalad.jpg" alt="Nonveg salad"/><h4>Non-Veg Salad</h4><p>Roast chicken with Pineapple capsicum and salad vegetables in mayonnaise</p><div class="price">₹150</div></div>
+      </div>
+    </section>
+
+    <!-- Starters Section -->
+    <section id="vegstarters">
+      <h3>Veg Starters</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="frenchfries.jpg" alt="French Fries"/><h4>French Freis</h4><div class="price">₹80</div></div>
+        <div class="menu-card"><img src="periperi.jpg" alt="Peri Peri Fries"/><h4>Peri Peri Fries</h4><div class="price">₹100</div></div>
+      </div>
+    </section>
+
+    <section id="nonvegstarters">
+      <h3>Non-Veg Starters</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Popcorn-Chicken.jpg" alt="French Fries"/><h4>Chicken Pop Corn</h4><div class="price">₹150</div></div>
+      </div>
+    </section>
+
+    <!-- Momos Section -->
+    <section id="momos">
+      <h3>Momos</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="steammomo.jpg" alt="Veg Momos"/><h4>Veg Momos</h4><p>Steamed vegetable momos</p><div class="price">₹100</div></div>
+        <div class="menu-card"><img src="nonvegsteammomo.jpg" alt="Chicken Momos"/><h4>Chicken Momos</h4><p>Steamed chicken momos</p><div class="price">₹120</div></div>
+        <div class="menu-card"><img src="vegfriedmomo.jpg" alt="Veg Momos"/><h4>Veg Momos</h4><p>Fried vegetable momos</p><div class="price">₹100</div></div>
+        <div class="menu-card"><img src="friedmomononveg.jpg" alt="Chicken Momos"/><h4>Chicken Momos</h4><p>Fried chicken momos</p><div class="price">₹120</div></div>
+      </div>
+    </section>
+
+    <!-- Mocktails Section -->
+    <section id="mocktails">
+      <h3>Mocktails</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="mintmocktail.jpg" alt="Virgin Mojito"/><h4>Lime & Mint</h4><div class="price">₹70</div></div>
+        <div class="menu-card"><img src="blackcurrent.jpg" alt="Fruit Punch"/><h4>Black Current</h4><div class="price">₹70</div></div>
+        <div class="menu-card"><img src="virginmojito.jpg" alt="Virgin Mojito"/><h4>Virgin Mojito</h4><div class="price">₹70</div></div>
+      </div>
+    </section>
+
+    <!-- Coolberg Section -->
+    <section id="coolberg">
+      <h3>Coolberg</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="coolberg.png" alt="Coolberg Bottle"/><h4>Mint</h4><p>Non-alcoholic malt beverage</p><div class="price">₹119</div></div>
+        <div class="menu-card"><img src="coolberg.png" alt="Coolberg Bottle"/><h4>Mault</h4><p>Non-alcoholic malt beverage</p><div class="price">₹119</div></div>
+        <div class="menu-card"><img src="coolberg.png" alt="Coolberg Bottle"/><h4>Carnberry</h4><p>Non-alcoholic malt beverage</p><div class="price">₹119</div></div>
+        <div class="menu-card"><img src="coolberg.png" alt="Coolberg Bottle"/><h4>Peach</h4><p>Non-alcoholic malt beverage</p><div class="price">₹119</div></div>
+      </div>
+    </section>
+
+    <!-- Coffee Section -->
+    <section id="coffee">
+      <h3>Coffee</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="coldcoffee.jpg" alt="Espresso"/><h4>Cold Coffee</h4><div class="price">₹50</div></div>
+        <div class="menu-card"><img src="coldcfush.jpg" alt="Cappuccino"/><h4>Cold Crush</h4><div class="price">₹70</div></div>
+        <div class="menu-card"><img src="coldchocolate.jpg" alt="Cappuccino"/><h4>Cold Chocolate</h4><div class="price">₹90</div></div>
+      </div>
+    </section>
+
+    <!-- Desserts Section -->
+    <section id="desserts">
+      <h3>Desserts</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="chocolava.jpeg" alt="Brownie"/><h4>Choco Lava Cake</h4><div class="price">₹80</div></div></div>
+    </section>
+
+    <!-- Super Side Section -->
+     <!-- Section -->
+    <section id="supersideorders">
+      <h3>Super Side Order's</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="garlicbread.jpg" alt="Veg Momos"/><h4>Garlic Bread</h4><p>Four slice of bread toosted with garlic butter</p><div class="price">₹80</div></div>
+        <div class="menu-card"><img src="garlicbreadcheese.jpg" alt="Chicken Momos"/><h4>Garlic Bread With Cheese</h4><p>Four slice of bread toosted with garlic butter with cheese</p><div class="price">₹110</div></div>
+        <div class="menu-card"><img src="chillitoast.jpg" alt="Veg Momos"/><h4>Corn Chilly Cheese Toast</h4><p>Four Slice of Bread tooped with mix of cheese, american corn, green chillies and chilly flakes</p><div class="price">₹130</div></div>
+      </div>
+    </section>
+    
+     <!--Pizza Sandwiches Section -->
+    <section id="vegpizzasandwich">
+      <h3>Veg Pizza Sandwiches</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Vegeterian Delight Sandwich.jpg" alt="Veg Momos"/><h4>Vegeterian Delight</h4><p>Peppy paneer, american corn, salad vegetables & green chilies in Mayonnaise</p><div class="price">₹120</div></div>
+        <div class="menu-card"><img src="Cheesy Veggie Sandwich.jpg" alt="Chicken Momos"/><h4>Cheesy Veggie</h4><p>Cheese, mushroom & salad vegetables in mayonnaise</p><div class="price">₹120</div></div>
+        <div class="menu-card"><img src="Paneer Tikka Sandwich.jpg" alt="Veg Momos"/><h4>Paneer Tikka</h4><p>Juicy bite of paneer tikka mixed with onion, Coriander & Green Chillies with our special blend of sauces</p><div class="price">₹120</div></div>
+      </div>
+    </section>
+
+    <!--Pizza Sandwiches Section -->
+    <section id="nonvegpizzasandwich">
+      <h3>Non-Veg Pizza Sandwiches</h3>
+      <div class="menu-grid">
+        <div class="menu-card"><img src="Honey Pepper Chicken Sandwich.jpg" alt="Veg Momos"/><h4>Honey Pepper Chicken</h4><p>Roast chicken and salad vegetables in happy popper mayonnaise</p><div class="price">₹150</div></div>
+        <div class="menu-card"><img src="Tangy Chicken Sandwich.jpg" alt="Chicken Momos"/><h4>Spicy Chicken</h4><p>Roast chicken and onion blended with our own special mix of spices </p><div class="price">₹150</div></div>
+        <div class="menu-card"><img src="Tangy Chicken Sandwich.jpg" alt="Veg Momos"/><h4>Tangy Chicken</h4><p>Roast chicken and salad vegetables in soya sauce and worster sauce with chat masala</p><div class="price">₹150</div></div>
+      </div>
+    </section>
+
+   <footer>
+    📍 Free Home Delivery | Call: +91 7887820808 / +91 7887830808<br/>
+    Open 11 AM – 11 PM | Also available on Swiggy & Zomato<br/>
+    *Buy 1 Get 1 Pizza Mon–Thu | Minimum Order: 2 Regular Pizzas*
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('active');
+    }
+  </script>
+</body>
+
+</html>
